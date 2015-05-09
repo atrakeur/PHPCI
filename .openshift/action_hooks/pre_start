@@ -1,0 +1,22 @@
+#!/bin/bash
+
+echo "-------------------------------------------------------"
+echo "Creating config.yml file"
+echo "-------------------------------------------------------"
+
+ENV=$(cat <<EOF
+b8:
+  database:
+    servers:
+      read: "$OPENSHIFT_MYSQL_DB_HOST"
+      write: "$OPENSHIFT_MYSQL_DB_HOST"
+    name: "$OPENSHIFT_APP_NAME"
+    username: "$OPENSHIFT_MYSQL_DB_USERNAME"
+    password: "$OPENSHIFT_MYSQL_DB_PASSWORD"
+phpci:
+  url: "http://$OPENSHIFT_APP_DNS/"
+EOF
+)
+
+cd $OPENSHIFT_REPO_DIR
+echo -e "$ENV" > ./PHPCI/config.yml

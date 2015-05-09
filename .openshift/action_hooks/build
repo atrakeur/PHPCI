@@ -1,0 +1,11 @@
+#!/bin/bash
+echo "-------------------------------------------------------"
+echo "Preparing PHP code"
+echo "-------------------------------------------------------"
+cd $OPENSHIFT_REPO_DIR
+composer.phar install
+rm -rf PHPCI/build
+
+cd $OPENSHIFT_DATA_DIR
+mkdir -p build
+ln -s $OPENSHIFT_DATA_DIR/build $OPENSHIFT_REPO_DIR/PHPCI/build

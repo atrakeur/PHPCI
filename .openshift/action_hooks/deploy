@@ -1,0 +1,19 @@
+#!/bin/bash
+
+echo "-------------------------------------------------------"
+echo "Installing product"
+echo "-------------------------------------------------------"
+cd $OPENSHIFT_REPO_DIR
+mv ./public/.htaccess.dist ./public/.htaccess
+
+#
+#php console phpci:install \
+#	--db-host=$OPENSHIFT_MYSQL_DB_HOST \
+#	--db-name=$OPENSHIFT_APP_NAME \
+#	--db-user=$OPENSHIFT_MYSQL_DB_USERNAME \
+#	--db-pass=$OPENSHIFT_MYSQL_DB_PASSWORD \
+#	--admin-name=SomeUser \
+#	--admin-pass=SomePass \
+#	--admin-mail=Some@Email.com \
+#	--url="http://ci-atrakeur.rhcloud.com"
+#
